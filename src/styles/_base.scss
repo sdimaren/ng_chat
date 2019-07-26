@@ -1,0 +1,53 @@
+:root {
+  --color-primary: #218AF2;
+  --color-primary-dark: #064B90;
+  --light-grey: #F5F6FA;
+  --color-black: #6D6E73;
+  --color-white: #FFFFFF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 50%;
+  color: var(--color-black);
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+a {
+  font-size: 2rem;
+   
+  &:link{
+    color:var(--color-primary);
+  }
+  &:visited{
+    color:var(--color-primary);
+  }
+  &:hover{
+    color:var(--color-primary);
+  }
+  &:focus{
+    color:var(--color-primary);
+  }
+  &:active{
+    color:var(--color-primary);
+  }
+}
