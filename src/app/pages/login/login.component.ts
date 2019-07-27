@@ -11,10 +11,11 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.createForm()
+    this.createForm();
   }
 
   ngOnInit() {
+    this.loginForm.valueChanges.subscribe(console.log);
   }
 
   private createForm(): void {

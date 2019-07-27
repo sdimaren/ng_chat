@@ -30,3 +30,18 @@ h2 {
     text-align: left;
   }
 }
+
+.name-wrapper {
+  display: flex;
+  justify-content: space-between;
+  
+  &-content {
+    width: 48%;
+    flex-direction: row;
+  }
+
+  & input {
+    width: 100%;
+    margin-right: 2rem;
+  }
+}

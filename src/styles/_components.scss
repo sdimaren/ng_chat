@@ -6,48 +6,18 @@
   border-radius: 10px;
   border: none;
   background-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-white);
   position: relative;
   overflow: hidden;
   min-height: 5rem;	
   width: 100%;	
   cursor: pointer;
   margin-bottom: 2rem;
+  transition: all .3s;
 
-  & > * {
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    transition: all .2s;
-  }
-
-  &__visible {
-    padding: 2rem 7.5rem;
-  }
-
-  &__invisible {
-    display: inline-block;
-    position: absolute;
-    padding: 2rem 0;
-    left: 0;
-    top: -100%;
-  }
-
-  &:hover {
-    background-image: var(--color-primary);
-  }
-
-  &:hover &__visible{
-    transform: translateY(100%);
-  }
-
-  &:hover &__invisible{
-    top: 0;
-  }
-
-  &:focus {
-    outline: none;
-    animation: pulsate 1s infinite;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
@@ -55,28 +25,26 @@
 
 ////////////////////////////////////////////////
 // Input Field
-
 input {
   min-height: 5rem;	
   width: 100%;	
   border-radius: 5px;	
-  background-color: #F5F6FA;
+  background-color: var(--color-light-grey);
   border: none;
   margin-bottom: 2rem;
-  padding-left: 1rem;
+  padding: 1rem;
   font-size: 2rem;
 
+  &[type=text], 
   &[type=email], 
   &[type=password], 
   textarea {
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
     color: transparent;
-    text-shadow: 0 0 0 gray;
+    text-shadow: 0 0 0 var(--color-black);
   }
    
+  &[type=text]:focus,
   &[type=email]:focus,
   &[type=password]:focus, 
   textarea:focus {

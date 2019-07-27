@@ -2,16 +2,11 @@
   <div class="form-wrapper">
     <h2>Log In</h2>
     <form [formGroup]="loginForm" (submit)="submit()" novalidate>
-      <div>
-        <p>Email</p>
-        <input type="email">
-      </div>
-      <div>
-        <p>Password</p>
-        <input type="password">
-      </div>
-      <button class="btn" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+      <p>Email</p>
+      <input type="email" formControlName="email">
+      <p>Password</p>
+      <input type="password" formControlName="password">
+      <button type="submit" class="btn" [disabled]="!loginForm.valid">Log In</button>
     </form>
     <small><a routerLink="/signup">Need an account?</a></small>
-  </div>
 </div>
