@@ -1,7 +1,7 @@
 @import '../../../styles/main';
 
 .login {
-  height: 100vh;
+  height: 100%;
   font-size: 2rem;
   display: flex;
   justify-content: center;
@@ -19,7 +19,6 @@ h2 {
 .form-wrapper {
   width: 50%;
   min-height: 40%;
-  margin: 10%;
   border: 2px solid var(--color-light-grey);
   padding: 8rem;
   background: var(--color-white);
