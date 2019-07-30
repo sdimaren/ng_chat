@@ -1,1 +1,12 @@
-<p>chat-message works!</p>
+<div class="chat-message">
+  <img [src]="message.sender.photoUrl" class="rounded">
+  <div class="message">
+    <div class="name">
+      {{message.sender.firstName}} {{message.sender.lastName}}
+    </div>
+    <div class="bubble">
+        {{message.message}}
+    </div>
+    <small class="timestamp">{{message.createdAt | date:'medium' }}</small>
+  </div>
+</div>

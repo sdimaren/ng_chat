@@ -1,0 +1,10 @@
+.chat-window {
+  background-color: var(--color-light-grey);
+  height: 100%;
+  overflow-y: scroll;
+
+  .message-wrapper {
+    margin-top: 15rem;
+    margin-bottom: 8rem;
+  }
+}

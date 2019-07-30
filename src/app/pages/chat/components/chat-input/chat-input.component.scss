@@ -1,0 +1,23 @@
+.input {
+  display: flex;
+  flex-direction: column-reverse;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  width: 75%;
+  height: 6rem;
+  background-color: var(--color-white);
+  overflow-y: hidden;
+
+  .text-input {
+    border-radius: 28px;
+    border: 1px solid rgba(174,184,192,0.4);
+    position: fixed;
+    height: 4rem;
+    width: 69%;
+    position: inherit;
+    // margin: 1rem 4rem 0 4rem;
+    // padding-bottom: 2rem;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-chat-title-bar',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat-title-bar.component.scss']
 })
 export class ChatTitleBarComponent implements OnInit {
+
+  @Input() title: string;
 
   constructor() { }
 
