@@ -7,17 +7,17 @@
         <div class="name-wrapper">
           <div class="name-wrapper-content">
             <p>First Name</p>
-            <input type="text" formControlName="firstName">
+            <input type="text" formControlName="firstName" class="input">
           </div>
           <div class="name-wrapper-content">
             <p>Last Name</p>
-            <input type="text" formControlName="lastName">
+            <input type="text" formControlName="lastName" class="input">
           </div>
         </div>
           <p>Email</p>
-          <input type="email" formControlName="email">
+          <input type="email" formControlName="email" class="input">
           <p>Password</p>
-          <input type="password" formControlName="password">
+          <input type="password" formControlName="password" class="input">
         <button class="btn" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
       </form>
       <small><a routerLink="/login">Already have an account?</a></small>

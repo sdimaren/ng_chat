@@ -5,9 +5,9 @@
       <h2>Log In</h2>
       <form [formGroup]="loginForm" (submit)="submit()" novalidate>
         <p>Email</p>
-        <input type="email" formControlName="email">
+        <input type="email" formControlName="email" class="input">
         <p>Password</p>
-        <input type="password" formControlName="password">
+        <input type="password" formControlName="password" class="input">
         <button type="submit" class="btn" [disabled]="!loginForm.valid">Log In</button>
       </form>
       <small><a routerLink="/signup">Need an account?</a></small>

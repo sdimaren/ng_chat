@@ -1,5 +1,7 @@
-<div class="input">
-  <div class="text-input">
-    
+<div class="new-message-wrapper">
+  <div class="input-wrapper">
+    <input [(ngModel)]="newMessageText" type="text" placeholder="Type your message here" (keyup.enter)="submit(newMessage.value)" #newMessage>
+    <button class="btn-message-send" type="button" (click)="submit(newMessage.value)"></button>
   </div>
+
 </div>
