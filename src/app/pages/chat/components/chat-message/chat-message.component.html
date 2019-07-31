@@ -1,6 +1,7 @@
-<div class="chat-message">
-  <img [src]="message.sender.photoUrl" class="rounded">
-  <div class="message">
+<div *ngIf='message.sender.firstName != "Kyle" else userMessage'>
+  <div class="chat-message">
+    <img [src]="message.sender.photoUrl" class="img-rounded">
+    <div class="message">
     <div class="name">
       {{message.sender.firstName}} {{message.sender.lastName}}
     </div>
@@ -9,4 +10,19 @@
     </div>
     <small class="timestamp">{{message.createdAt | date:'medium' }}</small>
   </div>
+  </div>
 </div>
+
+<ng-template #userMessage>
+  <div class="user-message">
+    <div class="message">
+      <div class="name">
+          {{message.sender.firstName}} {{message.sender.lastName}}
+        </div>
+        <div class="bubble">
+            {{message.message}}
+        </div>
+        <small class="timestamp">{{message.createdAt | date:'medium' }}</small>
+    </div>
+  </div>
+</ng-template>

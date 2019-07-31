@@ -6,6 +6,9 @@
   --color-black: #6D6E73;
   --color-white: #FFFFFF;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
 
 * {
   margin: 0;
@@ -20,7 +23,7 @@
 
 html {
   box-sizing: border-box;
-  font-size: 50%;
+  font-size: 8px;
   color: var(--color-black);
 
 }

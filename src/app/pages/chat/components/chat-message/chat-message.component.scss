@@ -3,17 +3,17 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  margin-left: 3rem;
+  margin-left: 1rem;
   margin-bottom: 2rem;
 
-  .rounded {
-    width: 9rem;
-    height: 9rem;
-    height: 25%;
-    border-radius: 100%;
-    box-shadow: 0 2px 4px 0 #D2D2D2;
+  .img-rounded {
     margin-right: 1rem;
     margin-bottom: 3rem;
+  }
+
+  .message {
+    flex-direction: column;
+    margin: 0 40% 0 3rem;
   }
 
   .name, .timestamp{
@@ -30,12 +30,38 @@
     color: var(--color-black);
     box-shadow: 0 2px 4px 0 #D2D2D2;
     padding: 10px;
-    max-width: 50%;
     margin-bottom: 1rem;
   }
+}
+
+.user-message {
+
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: 1rem;
+  margin-bottom: 2rem;
 
   .message {
-    display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    margin: 0 3rem 0 40%;
+  }
+
+  .name, .timestamp {
+    font-size: 1.6rem;
+    margin-right: .5rem;
+    text-align: right;
+    display: block;
+  }
+
+  .bubble {
+    background-color: var(--color-primary);
+    border-radius: 15px;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 24px;
+    color: var(--color-white);
+    box-shadow: 0 2px 4px 0 #D2D2D2;
+    padding: 10px;
+    margin-bottom: 1rem;
   }
 }
