@@ -7,17 +7,29 @@
   .img-rounded {
     margin-left: 3rem;
   }
+
   .list-item-wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 12rem;
     border-bottom: 1px solid var(--color-light-grey);
+
+    .chat-list-text {
+      flex-direction: column;
+    }
+
   }
-  .chat-list-item {
-    padding: 1rem 4rem;
+  
+  .chat-list-user {
+    padding-left: 2rem;
     font-size: 2rem;
     font-weight: 700;
+  }
+
+  .chat-list-message {
+    padding-left: 2rem;
+    font-size: 2rem;
   }
 
 }

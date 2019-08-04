@@ -1,6 +1,7 @@
 
 ////////////////////////////////////////////////
 // Call to Action Button
+
 .btn {
   font-size: 1.8rem;
   border-radius: 10px;
@@ -21,10 +22,9 @@
   }
 }
 
-
-
 ////////////////////////////////////////////////
 // Input Field
+
 .input {
   min-height: 5rem;	
   width: 100%;	
@@ -54,8 +54,6 @@
   }
 }
 
-
-
 ////////////////////////////////////////////////
 // Images
 
@@ -63,5 +61,5 @@
   width: 7rem;
   height: 7rem;
   border-radius: 100%;
-  box-shadow: 0 2px 4px 0 #D2D2D2;
+  box-shadow: 0 2px 4px 0 var(--color-shadow);
 }
