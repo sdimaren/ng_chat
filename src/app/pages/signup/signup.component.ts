@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ export class SignupComponent implements OnInit {
 
   public signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private toastrService: ToastrService) {
     this.createForm();
   }
 
@@ -28,8 +29,13 @@ export class SignupComponent implements OnInit {
   };
 
   public submit(): void {
-    // TODO call the auth service
-    const {firstName, lastName, email, password} = this.signupForm.value;
-    console.log(`First Name: ${firstName}, Last Name: ${lastName}, Email: ${email}, Password: ${password}`);
+    if (this.signupForm.valid) {
+      // TODO call the auth service
+      const {firstName, lastName, email, password} = this.signupForm.value;
+      console.log(`First Name: ${firstName}, Last Name: ${lastName}, Email: ${email}, Password: ${password}`);
+    } else {
+      this.toastrService.error("Please try again.", "Enter a valid name, email and password.");
+    }
+
   }
 }

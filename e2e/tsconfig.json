@@ -1,6 +1,12 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": "",
+    "paths": {
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ]
+    },  
     "outDir": "../out-tsc/e2e",
     "module": "commonjs",
     "target": "es5",

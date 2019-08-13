@@ -1,3 +1,10 @@
 @import "base";
 @import "layout";
 @import "components";
+// regular style toast 
+@import '~ngx-toastr/toastr';
+
+.toast-container {
+  top: 10rem;
+  font-size: 2rem;
+}
