@@ -4,8 +4,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Modules
 import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
+
+// Guards
+import { AuthGuard } from './guards/auth.guard';
 
 // Services
 import { AuthService } from './services/auth.service';
@@ -50,7 +54,8 @@ import { ChatListComponent } from './pages/chat/components/chat-list/chat-list.c
   ],
   providers: [
     LoadingService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
