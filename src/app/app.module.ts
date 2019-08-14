@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxLoadingModule } from 'ngx-loading';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -39,7 +40,8 @@ import { ChatListComponent } from './pages/chat/components/chat-list/chat-list.c
     ToastrModule.forRoot({
       positionClass: 'toast-top-full-width',
       preventDuplicates: true,
-    })
+    }),
+    NgxLoadingModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]

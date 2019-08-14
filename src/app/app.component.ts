@@ -1,10 +1,27 @@
-import { Component } from '@angular/core';
+import { LoadingService } from './services/loading.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'ngchat';
+export class AppComponent implements OnInit, OnDestroy{
+  private subscriptions: Subscription[] = [];
+  public loading: boolean = false;
+
+  constructor(private loadingService: LoadingService) {}
+
+  ngOnInit() {
+    this.subscriptions.push(
+      this.loadingService.isLoading.subscribe(isLoading => {
+        this.loading = isLoading;
+      })
+    )
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
 }
