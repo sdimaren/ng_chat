@@ -1,21 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../services/auth.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from './../../services/loading.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   public loginForm: FormGroup;
-  
+  private subscriptions: Subscription[] = [];
+  private returnUrl: string;
+
   constructor(
     private fb: FormBuilder, 
     private toastrService: ToastrService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private auth: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
     ) {
     this.createForm();
     console.log("OK!");
@@ -23,6 +31,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm.valueChanges.subscribe(console.log);
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/chat';
   }
 
   private createForm(): void {
@@ -33,20 +42,27 @@ export class LoginComponent implements OnInit {
   };
 
   public submit(): void {
-    this.loadingService.isLoading.next(true);
 
     if (this.loginForm.valid) {
-    // TODO call the auth service
-    const {email, password} = this.loginForm.value;
-    console.log(`Email: ${email}, Password: ${password}`);
-    this.loadingService.isLoading.next(false);
-    } else { 
-      setTimeout(() => {
-        this.loadingService.isLoading.next(false);
-        this.toastrService.error("Please try again.", "Your email or password were invalid.");
-      }, 2000);
-     
-    }
+      this.loadingService.isLoading.next(true);
+      const {email, password} = this.loginForm.value;
 
+      // TODO call the auth service
+      this.subscriptions.push(
+        this.auth.login(email, password).subscribe(success => {
+          if (success) {
+            this.router.navigateByUrl(this.returnUrl)
+          }
+        })
+      );
+      this.loadingService.isLoading.next(false);
+    } else { 
+      this.loadingService.isLoading.next(false);
+      this.toastrService.error("Please try again.", "Your email or password were invalid.");
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }

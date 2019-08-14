@@ -1,17 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { LoadingService } from './../../services/loading.service';
+import { AuthService } from './../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, OnDestroy {
 
   public signupForm: FormGroup;
+  private subscriptions: Subscription[] = [];
 
-  constructor(private fb: FormBuilder, private toastrService: ToastrService) {
+  constructor(
+    private fb: FormBuilder, 
+    private toastrService: ToastrService,
+    private auth: AuthService,
+    private loadingService: LoadingService,
+    private router: Router
+    ) {
     this.createForm();
   }
 
@@ -30,12 +41,24 @@ export class SignupComponent implements OnInit {
 
   public submit(): void {
     if (this.signupForm.valid) {
-      // TODO call the auth service
       const {firstName, lastName, email, password} = this.signupForm.value;
-      console.log(`First Name: ${firstName}, Last Name: ${lastName}, Email: ${email}, Password: ${password}`);
+      
+      // TODO call the auth service
+      this.subscriptions.push(
+        this.auth.signup(firstName, lastName, email, password).subscribe(success => {
+          if (success) {
+            this.router.navigate['/chat'];
+          }
+          this.loadingService.isLoading.next(false);
+        })
+      )
     } else {
       this.toastrService.error("Please try again.", "Enter a valid name, email and password.");
     }
-
   }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe);
+  }
+
 }
