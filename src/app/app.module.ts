@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { environment } from './../environments/environment';
 
 // Modules
 import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
+import { AngularFireModule } from '@angular/fire';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -50,7 +52,8 @@ import { ChatListComponent } from './pages/chat/components/chat-list/chat-list.c
       positionClass: 'toast-top-full-width',
       preventDuplicates: true,
     }),
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [
     LoadingService,
