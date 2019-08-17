@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Route, ActivatedRouteSnapshot, RouterStateSnapshot, Router, UrlTree } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, take, tap} from 'rxjs/operators'
 import { ToastrService } from 'ngx-toastr';
@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot): Observable<boolean> | boolean {
     
       return this.auth.currentUser.pipe(
         take(1),

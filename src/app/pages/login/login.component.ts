@@ -1,11 +1,10 @@
-import { AuthService } from './../../services/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from './../../services/loading.service';
-import { Router, ActivatedRoute } from '@angular/router';
-
+import { AuthService } from './../../services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,7 +29,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.loginForm.valueChanges.subscribe(console.log);
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/chat';
   }
 

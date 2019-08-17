@@ -9,6 +9,9 @@ import { environment } from './../environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -53,7 +56,10 @@ import { ChatListComponent } from './pages/chat/components/chat-list/chat-list.c
       preventDuplicates: true,
     }),
     NgxLoadingModule.forRoot({}),
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   providers: [
     LoadingService,
