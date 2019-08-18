@@ -1,10 +1,10 @@
 <div class="chat-list">
-    <ng-container *ngFor="let chat of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+    <ng-container *ngFor="let chatroom of chatService.chatrooms | async ">
     <div class="list-item-wrapper">
       <img src="http://via.placeholder.com/150x150" class="img-rounded">
       <div class="chat-list-text">
         <div class="chat-list-user">
-          Chat #{{chat}}
+          <a [routerLink]="['/chat', chatroom.id]">{{ chatroom.name }}</a>
         </div>
         <div class="chat-list-message">
           Lorem ipsum, dolor sit...

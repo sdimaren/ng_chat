@@ -19,6 +19,7 @@ import { AuthGuard } from './guards/auth.guard';
 // Services
 import { AuthService } from './services/auth.service';
 import { LoadingService } from './services/loading.service';
+import { ChatService } from './services/chat.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -64,7 +65,8 @@ import { ChatListComponent } from './pages/chat/components/chat-list/chat-list.c
   providers: [
     LoadingService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })
