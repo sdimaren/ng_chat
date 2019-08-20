@@ -1,15 +1,16 @@
 <div class="chat-window">
-    <ng-container *ngIf="!chatroom else chatMessages"></ng-container>
-    <div class="select">
-      Select a Room
-    </div>
+    <ng-container *ngIf="!chatroom else chatMessages">
+      <div class="select">
+        Select a Room
+      </div>
+    </ng-container>
   <app-chat-input></app-chat-input>
 </div>
 
 <ng-template #chatMessages>
   <app-chat-title-bar [title]="chatroom.name"></app-chat-title-bar>
   <div class="message-wrapper">
-    <ng-container *ngFor="let message of dummyData">
+    <ng-container *ngFor="let message of messages">
       <app-chat-message [message]="message"></app-chat-message>
     </ng-container>
   </div>
