@@ -1,5 +1,6 @@
 <div class="chat-list">
     <ng-container *ngFor="let chatroom of chatService.chatrooms | async ">
+      <script>console.log(chatroom)</script>
     <div class="list-item-wrapper">
       <img src="http://via.placeholder.com/150x150" class="img-rounded">
       <div class="chat-list-text">

@@ -24,7 +24,6 @@ export class AuthGuard implements CanActivate {
         take(1),
         map((currentUser) => !!currentUser),
         tap((loggedIn) => {
-          console.log(loggedIn);
           if (!loggedIn) {
             this.toastrService.error("Please try again.", "You must be logged in to access that page.");
             this.router.navigate(['/login'], {queryParams: { returnUrl: state.url }});

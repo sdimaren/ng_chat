@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute
     ) {
     this.createForm();
-    console.log("OK!");
   }
 
   ngOnInit() {

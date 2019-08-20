@@ -1,12 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { ChatService } from './../../../../services/chat.service';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chat-window',
   templateUrl: './chat-window.component.html',
   styleUrls: ['./chat-window.component.scss']
 })
-export class ChatWindowComponent implements OnInit {
+export class ChatWindowComponent implements OnInit, OnDestroy {
 
+  public subscriptions: Subscription[] = []
+  public chatroom: Observable<any>;
+    
     // TODO replace wih Firebase data
   public dummyData = [
     { 
@@ -75,9 +81,15 @@ export class ChatWindowComponent implements OnInit {
     
   ];
 
-  constructor() {  }
+  constructor(
+    private route: ActivatedRoute,
+    private chatService: ChatService
+  ) {  }
 
   ngOnInit() {
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
 }
