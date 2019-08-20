@@ -7,7 +7,7 @@
 </div>
 
 <ng-template #chatMessages>
-  <app-chat-title-bar [title]="'Cat Facts'"></app-chat-title-bar>
+  <app-chat-title-bar [title]="chatroom.name"></app-chat-title-bar>
   <div class="message-wrapper">
     <ng-container *ngFor="let message of dummyData">
       <app-chat-message [message]="message"></app-chat-message>
