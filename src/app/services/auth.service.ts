@@ -13,6 +13,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 export class AuthService {
 
   public currentUser: Observable<User | null>;
+  public currentUserSnapshot: User | null;
 
   constructor(
     private router: Router,
@@ -29,6 +30,9 @@ export class AuthService {
           return of(null);
         }
       }))
+
+      this.setCurrentUserSnapshot();
+      console.log(this.setCurrentUserSnapshot());
   }
 
   public signup(firstName: string, lastName: string, email: string, password: string): Observable<boolean> {
@@ -65,5 +69,9 @@ export class AuthService {
       this.toastrService.success("You have been logged out.");
     });
 
+  }
+
+  private setCurrentUserSnapshot(): void{
+    this.currentUser.subscribe(user => this.currentUserSnapshot = user);
   }
 }

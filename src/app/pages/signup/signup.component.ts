@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -11,7 +11,7 @@ import { AuthService } from './../../services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit, OnDestroy {
+export class SignupComponent implements OnDestroy {
 
   public signupForm: FormGroup;
   private subscriptions: Subscription[] = [];
@@ -24,10 +24,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     private router: Router
     ) {
     this.createForm();
-  }
-
-  ngOnInit() {
-    this.signupForm.valueChanges.subscribe(console.log);
   }
 
   private createForm(): void {
