@@ -1,4 +1,4 @@
-<div *ngIf='authService.currentUserSnapshot.id != message.sender.id else userMessage'>
+<div *ngIf='auth.currentUserSnapshot.id != message.sender.id else userMessage'>
   <div class="chat-message">
     <img [src]="message.sender.photoURL" class="img-rounded">
     <div class="message">
@@ -6,10 +6,9 @@
       {{message.sender.firstName}} {{message.sender.lastName}}
     </div>
     <div class="bubble">
-        {{message.message}}
+      <div class="text">{{message.message}}</div>
+      <small class="timestamp">{{message.createdAt.toDate() | date:'shortTime' }}</small>
     </div>
-      <small class="timestamp">{{message.createdAt.toDate() | date:'medium' }}</small>
-    
   </div>
   </div>
 </div>
@@ -18,9 +17,9 @@
   <div class="user-message">
     <div class="message">
         <div class="bubble">
-            {{message.message}}
+            <div class="text">{{message.message}}</div>
+            <small class="timestamp">{{message.createdAt.toDate() | date:'shortTime' }}</small>
         </div>
-        <small class="timestamp">{{message.createdAt.toDate() | date:'medium' }}</small>
     </div>
   </div>
 </ng-template>

@@ -12,7 +12,7 @@ export class ChatMessageComponent implements OnInit {
   @Input() message: Message;
 
   constructor(
-    private authService: AuthService
+    private auth: AuthService
   ) { }
 
   ngOnInit() {

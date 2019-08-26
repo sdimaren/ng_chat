@@ -14,9 +14,16 @@
     margin: 0 40% 0 1rem;
   }
 
-  .name, .timestamp{
-    font-size: 1.6rem;
-    margin-left: .5rem;
+  .text {
+    margin-top: 1rem;
+    margin-right: 6rem;
+  }
+
+  .timestamp{
+    font-size: 1.2rem;
+    // margin-left: 2rem;
+    margin: -2rem 0 0 6rem;
+    float: right;
   }
 
   .bubble {
@@ -26,9 +33,13 @@
     line-height: 24px;
     color: var(--color-black);
     box-shadow: 0 2px 4px 0 var(--color-shadow);
-    padding: 10px 15px;
+    padding: 1px 13px;
     margin-bottom: 1rem;
-    width: fit-content;
+    overflow: hidden
+    // display: flex;
+    // flex-direction: row;
+    // align-content: flex-end;
+    // width: fit-content;
   }
 }
 
@@ -43,11 +54,8 @@
     margin: 0 3rem 0 40%;
   }
 
-  .name, .timestamp {
-    font-size: 1.6rem;
-    margin-right: .5rem;
-    text-align: right;
-    display: block;
+  .name, .text {
+    margin: 1rem 8rem 0 0;
   }
 
   .bubble {
@@ -57,10 +65,17 @@
     line-height: 24px;
     color: var(--color-white);
     box-shadow: 0 2px 4px 0 var(--color-shadow);
-    padding: 10px 15px;
-    margin-bottom: 1rem;
-    width: fit-content;
-    margin-left:auto; 
-    margin-right:0;
+    padding: 1px 13px;
+    margin-bottom: -1.5rem;
+    // width: fit-content;
+    margin-left: auto; 
+    margin-right: 0;
+  } 
+  
+  .timestamp {
+    font-size: 1.2rem;
+    margin: -2rem .5rem 0 0;
+    text-align: right;
+    display: block;
   }
 }

@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="profile-pic" *ngIf="user else noPhoto">
+    <img [src]="user?.photoURL" alt="profile-pic" class="img">
+  </div>
+  <div class="user">
+    {{user?.firstName}} {{user?.lastName}}
+  </div>
+  <div class="quote">
+    <blockquote>"{{user?.quote}}"</blockquote>
+  </div>
+  <div class="bio">
+    {{user?.bio}}
+  </div>
+  <div class="edit" *ngIf="user?.id === currentUser?.id">
+    <button [routerLink]="'/profile/' + currentUser?.id + '/edit'" class="btn">Edit Profile</button>
+  </div>
+</div>
+
+<ng-template #noPhoto>
+  <div class="no-photo">
+    No Photo
+  </div>
+</ng-template>
