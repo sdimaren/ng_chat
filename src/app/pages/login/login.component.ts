@@ -1,5 +1,5 @@
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +10,7 @@ import { AuthService } from './../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent implements OnInit, OnDestroy {
 
   public loginForm: FormGroup;
   private subscriptions: Subscription[] = [];
@@ -25,6 +25,18 @@ export class LoginComponent implements OnDestroy {
     private route: ActivatedRoute
     ) {
     this.createForm();
+  }
+
+  ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/chat';
+
+    this.subscriptions.push(
+      this.auth.currentUser.subscribe(user => {
+        if (!!user) {
+          this.router.navigateByUrl('/chat');
+        }
+      })
+    )
   }
 
   private createForm(): void {

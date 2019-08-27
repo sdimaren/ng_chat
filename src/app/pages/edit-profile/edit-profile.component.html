@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="profile-pic" *ngIf="currentUser else noPhoto">
+    <img *ngIf="!photoUrl" [src]="currentUser.photoURL" alt="profile-pic" class="img">
+    <img *ngIf="photoUrl && photoUrl.length > 0" [src]="photoUrl" alt="profile-pic" class="img">
+    
+  </div>
+  <div *ngIf="currentUser">
+    <input type="file" (change)="uploadFile($event)" class="input">
+  </div>
+  <div *ngIf="currentUser">
+    <input type="text" [(ngModel)]="currentUser.firstName" class="input">
+  </div>
+  <div *ngIf="currentUser">
+    <input type="text" [(ngModel)]="currentUser.lastName" class="input">
+  </div>
+  <div *ngIf="currentUser">
+      <input type="text" [(ngModel)]="currentUser.quote" class="input">
+    </div>
+    <div *ngIf="currentUser">
+      <textarea row="5" [(ngModel)]="currentUser.bio"></textarea>
+    </div>
+    <button class="btn" (click)="save()">Save Profile</button>
+</div>
+
+<ng-template #noPhoto>
+  <div class="no-photo">
+    No Photo
+  </div>
+</ng-template>

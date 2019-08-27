@@ -33,6 +33,7 @@ import { ChatWindowComponent } from './pages/chat/components/chat-window/chat-wi
 import { ChatTitleBarComponent } from './pages/chat/components/chat-title-bar/chat-title-bar.component';
 import { ChatListComponent } from './pages/chat/components/chat-list/chat-list.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ChatWindowComponent,
     ChatTitleBarComponent,
     ChatListComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

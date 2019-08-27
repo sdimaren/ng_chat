@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 6rem;
+
+  .no-photo {
+    height: 150px;
+    width: 150px;
+    background-color: var(--color-black);
+    margin: 1rem 0;
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px 0 var(--color-shadow);
+  }
+  
+  .user {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+  
+  .quote {
+    margin-bottom: 4rem;
+  }
+
+  .btn {
+    width: 300px;
+    max-height: 4rem;
+  }
+}

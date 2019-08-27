@@ -5,10 +5,10 @@
     <div class="page-links">
       <ul class="navbar-nav" *ngIf="currentUser else loggedOut">
         <li class="nav-item">
-          <a [routerLink]="'/profile/' + currentUser.id" routerLinkActive="active" class="nav-link active">Profile</a>
+          <a [routerLink]="'/profile/' + currentUser.id" routerLinkActive="active" class="nav-link">Profile</a>
         </li>
         <li class="nav-item">
-          <a routerLink="/chat" routerLinkActive="active" class="nav-link active">Chat Rooms</a>
+          <a routerLink="/chat" routerLinkActive="active" class="nav-link">Chat Rooms</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="auth.logout()">Log Out</a>
