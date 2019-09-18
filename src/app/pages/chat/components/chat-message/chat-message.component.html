@@ -1,6 +1,6 @@
 <div *ngIf='auth.currentUserSnapshot.id != message.sender.id else userMessage'>
   <div class="chat-message">
-    <img [src]="message.sender.photoURL" class="img-rounded">
+    <img [src]="message.sender.photoURL" class="img-rounded" [routerLink]="'/profile/' + message.sender.id">
     <div class="message">
     <div class="name">
       {{message.sender.firstName}} {{message.sender.lastName}}

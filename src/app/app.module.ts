@@ -15,6 +15,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
+import { IsOwnerGuard } from './guards/is-owner.guard';
 
 // Services
 import { AuthService } from './services/auth.service';
@@ -70,6 +71,7 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
     LoadingService,
     AuthService,
     AuthGuard,
+    IsOwnerGuard,
     ChatService
   ],
   bootstrap: [AppComponent]
